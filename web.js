@@ -4,9 +4,7 @@ var app = express.createServer(express.logger());
 
 var fs = require('fs');
 
-var textinfo = new Buffer(32);
-
-textinfo.write(fs.readFileSync('index.html'),'utf-8');
+var textinfo = new Buffer(fs.readFileSync('index.html'));
 
 app.get('/', function(request, response) {
   response.send(textinfo.toString('utf-8'));
