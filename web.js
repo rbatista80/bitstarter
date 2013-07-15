@@ -6,12 +6,7 @@ var fs = require('fs');
 
 var textinfo = new Buffer(32);
 
-fs.readFile('index.html','utf8', function(err, data) {
-    if (err) { console.log(err); }
-    console.log(data);
-    textinfo.write(data,'utf-8');
-});
-
+textinfo.write(fs.readFileSync('index.html'),'utf-8');
 
 app.get('/', function(request, response) {
   response.send(textinfo.toString('utf-8'));
