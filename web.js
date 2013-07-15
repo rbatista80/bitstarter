@@ -6,16 +6,15 @@ var fs = require('fs');
 
 var textinfo = new Buffer('');
 
-fs.readFile('index.html','utf-8', function(err,data) {
+fs.readFile('index.html','utf8', function(err,data) {
     if (err) throw err;
     console.log(data);
     textinfo.write(data);
 });
 
 
-
 app.get('/', function(request, response) {
-  response.send(textinfo);
+  response.send(textinfo.toString('utf8'));
 });
 
 var port = process.env.PORT || 5000;
