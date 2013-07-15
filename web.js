@@ -6,8 +6,8 @@ var fs = require('fs');
 
 var textinfo = new Buffer('');
 
-fs.readFile('index.html','utf8', function(err,data) {
-    if (err) throw err;
+fs.readFile('index.html','utf8', function(err, data) {
+    if (err) { console.log(-err); }
     console.log(data);
     textinfo.write(data);
 });
